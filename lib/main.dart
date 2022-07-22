@@ -6,7 +6,7 @@ void main() {
       home: Scaffold(
         backgroundColor: Colors.deepPurple,
         appBar: AppBar(
-          title: const Text('Dicee'),
+          title: const Text('Dice Roller'),
           backgroundColor: Colors.deepPurpleAccent,
         ),
         body: const DicePage(),
@@ -20,21 +20,29 @@ class DicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: const <Widget>[
-        Expanded(
-          flex: 1,
-          child: Image(
-            image: AssetImage('images/dice1.png'),
+    return Center(
+      child: Row(
+        children: const <Widget>[
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Image(
+                image: AssetImage('images/dice1.png'),
+              ),
+            ),
           ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Image(
-            image: AssetImage('images/dice1.png'),
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Image(
+                image: AssetImage('images/dice2.png'),
+              ),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
