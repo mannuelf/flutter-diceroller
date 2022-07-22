@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   return runApp(
@@ -40,7 +41,7 @@ class _DicePageState extends State<DicePage> {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    leftDiceNum = 2;
+                    leftDiceNum = Random().nextInt(7);
                   });
                 },
                 style: style,
@@ -57,7 +58,7 @@ class _DicePageState extends State<DicePage> {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    rightDiceNum = 2;
+                    rightDiceNum = Random().nextInt(7);
                   });
                 },
                 style: style,
