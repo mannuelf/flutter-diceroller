@@ -9,35 +9,61 @@ void main() {
           title: const Text('Dice Roller'),
           backgroundColor: Colors.deepPurpleAccent,
         ),
-        body: const DicePage(),
+        body: DicePage(),
       ),
     ),
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
   const DicePage({Key? key}) : super(key: key);
+
+  @override
+  State<DicePage> createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNum = 1;
+  int rightDiceNum = 4;
+  final ButtonStyle style =
+      ElevatedButton.styleFrom(primary: Colors.deepPurple);
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Row(
-        children: const <Widget>[
+        children: <Widget>[
           Expanded(
             flex: 1,
             child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Image(
-                image: AssetImage('images/dice1.png'),
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    leftDiceNum = 2;
+                  });
+                },
+                style: style,
+                child: Image(
+                  image: AssetImage('images/dice$leftDiceNum.png'),
+                ),
               ),
             ),
           ),
           Expanded(
             flex: 1,
             child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Image(
-                image: AssetImage('images/dice2.png'),
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    rightDiceNum = 2;
+                  });
+                },
+                style: style,
+                child: Image(
+                  image: AssetImage('images/dice$rightDiceNum.png'),
+                ),
               ),
             ),
           ),
