@@ -29,6 +29,15 @@ class _DicePageState extends State<DicePage> {
   final ButtonStyle style =
       ElevatedButton.styleFrom(primary: Colors.deepPurple);
 
+  int generateRandomNumber() {
+    return Random().nextInt(6) + 1;
+  }
+
+  void changeDiceState() {
+    rightDiceNum = generateRandomNumber();
+    leftDiceNum = generateRandomNumber();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -41,7 +50,7 @@ class _DicePageState extends State<DicePage> {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    leftDiceNum = Random().nextInt(7);
+                    changeDiceState();
                   });
                 },
                 style: style,
@@ -58,7 +67,7 @@ class _DicePageState extends State<DicePage> {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    rightDiceNum = Random().nextInt(7);
+                    changeDiceState();
                   });
                 },
                 style: style,
